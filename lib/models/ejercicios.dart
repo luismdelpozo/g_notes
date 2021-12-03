@@ -7,7 +7,7 @@ class Ejercicios{
   String name;
   Color color;
   String imgName;
-  Musculos musculo;
+  String musculo;
 
   Ejercicios({
     required this.name,

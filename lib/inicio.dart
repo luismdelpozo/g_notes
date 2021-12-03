@@ -28,7 +28,7 @@ class Inicio extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Icon(
+        title: const Icon(
             MyFlutterApp.dumbbell,
             color: Colors.black,
             size: 40
@@ -40,15 +40,15 @@ class Inicio extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
+              const Padding(
+                padding: EdgeInsets.all(20.0),
                 child: Text('Hoy toca hacer:',
                   textAlign: TextAlign.left,
                   style: TextStyle(color: Colors.black),
                   ),
                 ),
               Container(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 height: 230,
                 width: 150,
                 child: Stack(
@@ -87,9 +87,9 @@ class Inicio extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               child: Row(
                                   children: [
-                                    SizedBox(width: 8),
+                                    const SizedBox(width: 8),
                                     Text(musculos[_selected_musculo].name,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 25
                                       ),
@@ -98,68 +98,70 @@ class Inicio extends StatelessWidget {
                               )
                           )
                       ),
-                      ListView.builder(
-                          itemCount: ejercicios.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext ctx, int iEjercicio){
-                            return Container(
-                              margin: EdgeInsets.all(20),
-                              height: 150,
-                              child: Stack(
-                                  children: [
-                                    Positioned.fill(
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(20),
-                                          child: Image.asset(
-                                              'assets/' + ejercicios[iEjercicio].imgName,
-                                              fit: BoxFit.cover
-                                          ),
-                                        )
-                                    ),
-                                    Positioned(
-                                        bottom: 0,
-                                        left: 0,
-                                        right: 0,
-                                        child: Container(
-                                          height: 120,
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                              gradient: LinearGradient(
-                                                  begin: Alignment.bottomCenter,
-                                                  end: Alignment.topCenter,
-                                                  colors: [
-                                                    Colors.black.withOpacity(0.7),
-                                                    Colors.transparent
-                                                  ]
-                                              )
-                                          ),
-                                        )
-                                    ),
-                                    Positioned(
-                                        bottom: 0,
-                                        child: Padding(
-                                            padding: const EdgeInsets.all(10),
-                                            child: Row(
-                                                children: [
-                                                  SizedBox(width: 8),
-                                                  Text(ejercicios[iEjercicio].name,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 25
-                                                    ),
-                                                  )
-                                                ]
-                                            )
-                                        )
-                                    )
-                                  ]
-                              ),
-                            );
-                          }
-                      )
                     ]
                 ),
               ),
+              Expanded(
+                  child: ListView.builder(
+                    ///scrollDirection: Axis.horizontal,
+                    itemCount: ejercicios.length,
+                    itemBuilder: (BuildContext ctx, int index) {
+                      return Container(
+                        margin: const EdgeInsets.all(20),
+                        height: 100,
+                        child: Stack(
+                            children: [
+                              Positioned.fill(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Image.asset(
+                                        'assets/' + ejercicios[index].imgName,
+                                        fit: BoxFit.cover
+                                    ),
+                                  )
+                              ),
+                              Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 120,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.bottomCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [
+                                              Colors.black.withOpacity(0.7),
+                                              Colors.transparent
+                                            ]
+                                        )
+                                    ),
+                                  )
+                              ),
+                              Positioned(
+                                  bottom: 0,
+                                  child: Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: Row(
+                                          children: [
+                                            const SizedBox(width: 8),
+                                            Text(ejercicios[index].name,
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 25
+                                              ),
+                                            )
+                                          ]
+                                      )
+                                  )
+                              )
+                            ]
+                        ),
+                      );
+                    },
+                  )
+              )
             ],
           ),
        ),

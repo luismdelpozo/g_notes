@@ -56,37 +56,37 @@ class Utils{
           name: 'Press banca horizontal',
           color: Colors.blueAccent,
           imgName: 'pressh.png',
-          musculo: getMusculos()[0]
+          musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca horizontal con mancuernas',
           color: Colors.blueAccent,
           imgName: 'presshm.jpg',
-          musculo: getMusculos()[0]
+          musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca inclinado',
           color: Colors.blueAccent,
           imgName: 'pressi.png',
-          musculo: getMusculos()[0]
+          musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca inclinado con mancuernas',
           color: Colors.blueAccent,
           imgName: 'pressim.jpg',
-          musculo: getMusculos()[0]
+          musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca declinado',
           color: Colors.blueAccent,
-          imgName: 'pressd.jpg',
-          musculo: getMusculos()[0]
+          imgName: 'pressd.png',
+          musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca declinado con mancuernas',
           color: Colors.blueAccent,
           imgName: 'pressdm.png',
-          musculo: getMusculos()[0]
+          musculo: 'Pecho'
       ),
       ///Ejercicios(
       ///name: 'Contractora',
