@@ -4,23 +4,16 @@ import 'package:g_notes/models/ejercicios.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Inicio extends StatelessWidget {
   int _selected_musculo = 0;
   List<Musculos> musculos = Utils.getMusculos();
   List<Ejercicios> ejercicios = Utils.getEjercicios();
 
-  //List<Ejercicios> crearListaBuena(){
-    //List<Ejercicios> ejerciciosCorrectos = [];
-    //for(int i = 0; i < ejercicios.length; i++){
-      //if (ejercicios[i].musculo.name == musculos[_selected_musculo].name){
-        //ejerciciosCorrectos.add(ejercicios[i]);
-      //}
-    //}
-    //return ejerciciosCorrectos;
-  //}
+  final Style_letra = const TextStyle(fontSize: 20);
 
-  //List<Ejercicios> ejercicios_correctos = Inicio().crearListaBuena();
+  Radius get radius => new Radius.circular(20);
 
   /// Clasificacion de musculos
   @override
@@ -40,22 +33,21 @@ class Inicio extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Text('Hoy toca hacer:',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(color: Colors.black),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 20),
+                child: Text('Músculo recomendado:',
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.oswald(textStyle: Style_letra)
                   ),
                 ),
               Container(
                 margin: const EdgeInsets.all(20),
                 height: 230,
-                width: 150,
                 child: Stack(
                     children: [
                       Positioned.fill(
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.all(radius),
                             child: Image.asset(
                                 'assets/' + musculos[_selected_musculo].imgName,
                                 fit: BoxFit.cover
@@ -69,7 +61,7 @@ class Inicio extends StatelessWidget {
                           child: Container(
                             height: 120,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.all(radius),
                                 gradient: LinearGradient(
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
@@ -84,7 +76,7 @@ class Inicio extends StatelessWidget {
                       Positioned(
                           bottom: 0,
                           child: Padding(
-                              padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(20),
                               child: Row(
                                   children: [
                                     const SizedBox(width: 8),
@@ -101,19 +93,27 @@ class Inicio extends StatelessWidget {
                     ]
                 ),
               ),
+              Positioned(
+                  child: Container(
+                    height: 560,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.all(radius)
+                    ),
+                  )
+              ),
               Expanded(
                   child: ListView.builder(
-                    ///scrollDirection: Axis.horizontal,
                     itemCount: ejercicios.length,
                     itemBuilder: (BuildContext ctx, int index) {
                       return Container(
                         margin: const EdgeInsets.all(20),
-                        height: 100,
+                        height: 120,
                         child: Stack(
                             children: [
                               Positioned.fill(
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.all(radius),
                                     child: Image.asset(
                                         'assets/' + ejercicios[index].imgName,
                                         fit: BoxFit.cover
@@ -149,7 +149,7 @@ class Inicio extends StatelessWidget {
                                             Text(ejercicios[index].name,
                                               style: const TextStyle(
                                                   color: Colors.white,
-                                                  fontSize: 25
+                                                  fontSize: 17
                                               ),
                                             )
                                           ]

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
 
 class Notas extends StatelessWidget {
   List<Musculos> musculos = Utils.getMusculos();
-
+  final Style_letra = const TextStyle(fontSize: 20);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,11 +23,11 @@ class Notas extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: Text('Selecciona un músculo',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
+              style: GoogleFonts.oswald(textStyle: Style_letra)
             ),
           ),
           Expanded(
