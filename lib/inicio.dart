@@ -5,6 +5,7 @@ import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:g_notes/models/search_bar.dart';
 
 class Inicio extends StatelessWidget {
   int _selected_musculo = 0;
@@ -93,21 +94,23 @@ class Inicio extends StatelessWidget {
                     ]
                 ),
               ),
-              Positioned(
-                  child: Container(
-                    height: 560,
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.all(radius)
-                    ),
-                  )
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                      child: SearchBarWidget(),
+                    )
+                  ],
+                ),
               ),
               Expanded(
                   child: ListView.builder(
                     itemCount: ejercicios.length,
                     itemBuilder: (BuildContext ctx, int index) {
                       return Container(
-                        margin: const EdgeInsets.all(20),
+                        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                         height: 120,
                         child: Stack(
                             children: [
