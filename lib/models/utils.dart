@@ -88,18 +88,84 @@ class Utils{
           imgName: 'pressdm.png',
           musculo: 'Pecho'
       ),
-      ///Ejercicios(
-      ///name: 'Contractora',
-      ///color: Colors.blueAccent,
-      ///imgName: 'contractora.jpg',
-      ///musculo: getMusculos()[0]
-      ///),
-      ///Ejercicios(
-          ///name: 'Rompecráneos',
-          ///color: Colors.blueAccent,
-          ///imgName: 'rompecraneos.jpg',
-          ///musculo: getMusculos()[3]
-      ///),
+      Ejercicios(
+        name: 'Remo con barra',
+        color: Colors.blueAccent,
+        imgName: '',
+        musculo: 'Espalda'
+      ),
+      Ejercicios(
+          name: 'Press militar',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Hombro'
+      ),
+      Ejercicios(
+          name: 'Dominadas',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Espalda'
+      ),
+      Ejercicios(
+          name: 'Sentadilla',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Pierna'
+      ),
+      Ejercicios(
+          name: 'Peso muerto',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Pierna'
+      ),
+      Ejercicios(
+          name: 'Curl femoral',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Pierna'
+      ),
+      Ejercicios(
+          name: 'Gemelo',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Pierna'
+      ),
+      Ejercicios(
+          name: 'Chin-ups',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Biceps'
+      ),
+      Ejercicios(
+          name: 'Facepull',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Espalda'
+      ),
+      Ejercicios(
+          name: 'Martillo',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Biceps'
+      ),
+      Ejercicios(
+          name: 'Rompecraneos',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Triceps'
+      ),
+      Ejercicios(
+          name: 'Zancadas',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Pierna'
+      ),
+      Ejercicios(
+          name: 'Extension de cuadriceps',
+          color: Colors.blueAccent,
+          imgName: '',
+          musculo: 'Espalda'
+      ),
     ];
   }
 }
