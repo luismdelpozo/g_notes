@@ -55,115 +55,115 @@ class Utils{
       Ejercicios(
           name: 'Press banca horizontal',
           color: Colors.blueAccent,
-          imgName: 'pressh.png',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: 'Press banca horizontal con mancuernas',
+          name: 'Press banca horizontal\ncon mancuernas',
           color: Colors.blueAccent,
-          imgName: 'presshm.jpg',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca inclinado',
           color: Colors.blueAccent,
-          imgName: 'pressi.png',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: 'Press banca inclinado con mancuernas',
+          name: 'Press banca inclinado\ncon mancuernas',
           color: Colors.blueAccent,
-          imgName: 'pressim.jpg',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
           name: 'Press banca declinado',
           color: Colors.blueAccent,
-          imgName: 'pressd.png',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: 'Press banca declinado con mancuernas',
+          name: 'Press banca declinado\ncon mancuernas',
           color: Colors.blueAccent,
-          imgName: 'pressdm.png',
+          imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
         name: 'Remo con barra',
         color: Colors.blueAccent,
-        imgName: '',
+        imgName: 'laterales_ejercicio.png',
         musculo: 'Espalda'
       ),
       Ejercicios(
           name: 'Press militar',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'hombro_ejercicio.png',
           musculo: 'Hombro'
       ),
       Ejercicios(
           name: 'Dominadas',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'espalda_entera_icon.png',
           musculo: 'Espalda'
       ),
       Ejercicios(
           name: 'Sentadilla',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'cuadriceps_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
           name: 'Peso muerto',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'femoral_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
           name: 'Curl femoral',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'femoral_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
           name: 'Gemelo',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'gemelo_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
           name: 'Chin-ups',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'biceps_ejercicio.png',
           musculo: 'Biceps'
       ),
       Ejercicios(
           name: 'Facepull',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'espalda_ejercicio.png',
           musculo: 'Espalda'
       ),
       Ejercicios(
           name: 'Martillo',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'biceps_ejercicio.png',
           musculo: 'Biceps'
       ),
       Ejercicios(
           name: 'Rompecraneos',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'triceps_ejercicio.png',
           musculo: 'Triceps'
       ),
       Ejercicios(
           name: 'Zancadas',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'pierna_entera_icon.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
           name: 'Extension de cuadriceps',
           color: Colors.blueAccent,
-          imgName: '',
+          imgName: 'cuadriceps_ejercicio.png',
           musculo: 'Espalda'
       ),
     ];

@@ -82,10 +82,7 @@ class Inicio extends StatelessWidget {
                                   children: [
                                     const SizedBox(width: 8),
                                     Text(musculos[_selected_musculo].name,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 25
-                                      ),
+                                      style: GoogleFonts.oswald(textStyle: Style_letra, color: Colors.white)
                                     )
                                   ]
                               )
@@ -111,54 +108,44 @@ class Inicio extends StatelessWidget {
                     itemBuilder: (BuildContext ctx, int index) {
                       return Container(
                         margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                        height: 120,
+                        height: 150,
                         child: Stack(
                             children: [
-                              Positioned.fill(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.all(radius),
-                                    child: Image.asset(
-                                        'assets/' + ejercicios[index].imgName,
-                                        fit: BoxFit.cover
+                              // Positioned(
+                              //     bottom: 0,
+                              //     left: 0,
+                              //     right: 0,
+                              //     top: 0,
+                              //     child: Container(
+                              //       height: 150,
+                              //       decoration: BoxDecoration(
+                              //           borderRadius: BorderRadius.circular(20),
+                              //           gradient: LinearGradient(
+                              //               begin: Alignment.bottomCenter,
+                              //               end: Alignment.topCenter,
+                              //               colors: [
+                              //                 Colors.black87.withOpacity(0.7),
+                              //                 Colors.white70
+                              //               ]
+                              //           )
+                              //       ),
+                              //     )
+                              // ),
+                              Positioned(
+                                  child: CircleAvatar(
+                                    radius: 60.0,
+                                    backgroundImage: AssetImage('assets/' + ejercicios[index].imgName),
+                                    backgroundColor: Colors.lightBlueAccent,
                                     ),
-                                  )
                               ),
                               Positioned(
-                                  bottom: 0,
-                                  left: 0,
-                                  right: 0,
-                                  child: Container(
-                                    height: 120,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        gradient: LinearGradient(
-                                            begin: Alignment.bottomCenter,
-                                            end: Alignment.topCenter,
-                                            colors: [
-                                              Colors.black.withOpacity(0.7),
-                                              Colors.transparent
-                                            ]
+                                bottom: 75,
+                                right: 25,
+                                child: Text(ejercicios[index].name,
+                                         style: GoogleFonts.oswald(textStyle: Style_letra),
+                                          textAlign: TextAlign.left
                                         )
-                                    ),
-                                  )
                               ),
-                              Positioned(
-                                  bottom: 0,
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(10),
-                                      child: Row(
-                                          children: [
-                                            const SizedBox(width: 8),
-                                            Text(ejercicios[index].name,
-                                              style: const TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 17
-                                              ),
-                                            )
-                                          ]
-                                      )
-                                  )
-                              )
                             ]
                         ),
                       );
