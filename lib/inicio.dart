@@ -13,7 +13,7 @@ class Inicio extends StatelessWidget {
   List<Ejercicios> ejercicios = Utils.getEjercicios();
 
   final Style_letra = const TextStyle(fontSize: 20);
-
+  final Style_letra_small = const TextStyle(fontSize: 10);
   Radius get radius => new Radius.circular(20);
 
   /// Clasificacion de musculos
@@ -82,7 +82,9 @@ class Inicio extends StatelessWidget {
                                   children: [
                                     const SizedBox(width: 8),
                                     Text(musculos[_selected_musculo].name,
-                                      style: GoogleFonts.oswald(textStyle: Style_letra, color: Colors.white)
+                                      style: GoogleFonts.oswald(
+                                          textStyle: Style_letra,
+                                          color: Colors.white)
                                     )
                                   ]
                               )
@@ -108,44 +110,28 @@ class Inicio extends StatelessWidget {
                     itemBuilder: (BuildContext ctx, int index) {
                       return Container(
                         margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                        height: 150,
                         child: Stack(
                             children: [
-                              // Positioned(
-                              //     bottom: 0,
-                              //     left: 0,
-                              //     right: 0,
-                              //     top: 0,
-                              //     child: Container(
-                              //       height: 150,
-                              //       decoration: BoxDecoration(
-                              //           borderRadius: BorderRadius.circular(20),
-                              //           gradient: LinearGradient(
-                              //               begin: Alignment.bottomCenter,
-                              //               end: Alignment.topCenter,
-                              //               colors: [
-                              //                 Colors.black87.withOpacity(0.7),
-                              //                 Colors.white70
-                              //               ]
-                              //           )
-                              //       ),
-                              //     )
-                              // ),
-                              Positioned(
-                                  child: CircleAvatar(
-                                    radius: 60.0,
-                                    backgroundImage: AssetImage('assets/' + ejercicios[index].imgName),
-                                    backgroundColor: Colors.lightBlueAccent,
+                              SizedBox(
+                                width: 8000,
+                                height: 100,
+                                child: FittedBox(
+                                  child: FloatingActionButton.extended(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                        MyFlutterApp.dumbbell,
+                                        color: Colors.white
                                     ),
-                              ),
-                              Positioned(
-                                bottom: 75,
-                                right: 25,
-                                child: Text(ejercicios[index].name,
-                                         style: GoogleFonts.oswald(textStyle: Style_letra),
-                                          textAlign: TextAlign.left
-                                        )
-                              ),
+                                    label: Text(ejercicios[index].name,
+                                        style: GoogleFonts.oswald(
+                                            textStyle: Style_letra_small,
+                                            color: Colors.white),
+                                        textAlign: TextAlign.left
+                                    ),
+                                    backgroundColor: Colors.black,
+                                  )
+                                ),
+                              )
                             ]
                         ),
                       );
