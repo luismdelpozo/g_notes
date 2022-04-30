@@ -4,6 +4,8 @@ import 'package:g_notes/estadistica.dart';
 import 'package:g_notes/notas.dart';
 import 'package:g_notes/inicio.dart';
 
+import 'my_flutter_app_icons.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -49,21 +51,24 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: index_page,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        items: [
+        selectedItemColor: Colors.black87,
+        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
+              icon: Icon(Icons.home_filled),
               label: 'Inicio'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notes),
+              icon: Icon(Icons.note_rounded),
               label: "Notas"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_sharp),
+              icon: Icon(Icons.calendar_today_rounded),
               label: "Calendario"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.sticky_note_2_outlined),
+              icon: Icon(MyFlutterApp.chart_area),
               label: "Estadística"
           )
         ],
