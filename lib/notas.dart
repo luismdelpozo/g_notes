@@ -50,24 +50,24 @@ class Notas extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            child: Column(children: [
-              TextField(
-                onChanged: (value){
-                  url = 'http://10.0.2.2:5000/home?query=' + value.toString();
-                },
-              ),
-              TextButton(
-                  onPressed: () async {
-                    data = await fetchData(url);
-                    var decoded = jsonDecode(data);
-                    print(decoded);
-                  },
-                  child: Text('Call api')
-              ),
-              Text(output)
-            ],)
-          ),
+          // Container(
+          //   child: Column(children: [
+          //     TextField(
+          //       onChanged: (value){
+          //         url = 'http://10.0.2.2:5000/home?query=' + value.toString();
+          //       },
+          //     ),
+          //     TextButton(
+          //         onPressed: () async {
+          //           data = await fetchData(url);
+          //           var decoded = jsonDecode(data);
+          //           print(decoded);
+          //         },
+          //         child: Text('Call api')
+          //     ),
+          //     Text(output)
+          //   ],)
+          // ),
           Expanded(
               child: ListView.builder(
                 itemCount: musculos.length,
@@ -115,10 +115,7 @@ class Notas extends StatelessWidget {
                                         children: [
                                           const SizedBox(width: 8),
                                           Text(musculos[index].name,
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 25
-                                            ),
+                                            style: GoogleFonts.oswald(textStyle: Style_letra, color: Colors.white)
                                           )
                                         ]
                                     )

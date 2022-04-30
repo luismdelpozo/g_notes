@@ -108,32 +108,37 @@ class Inicio extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: ejercicios.length,
                     itemBuilder: (BuildContext ctx, int index) {
-                      return Container(
-                        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                        child: Stack(
-                            children: [
-                              SizedBox(
-                                width: 8000,
-                                height: 100,
-                                child: FittedBox(
-                                  child: FloatingActionButton.extended(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                        MyFlutterApp.dumbbell,
-                                        color: Colors.white
-                                    ),
-                                    label: Text(ejercicios[index].name,
-                                        style: GoogleFonts.oswald(
-                                            textStyle: Style_letra_small,
-                                            color: Colors.white),
-                                        textAlign: TextAlign.left
-                                    ),
-                                    backgroundColor: Colors.black,
-                                  )
+                      return InkWell(
+                          child: Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.black
+                            ),
+                            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(ejercicios[index].name,
+                                    style: GoogleFonts.oswald(
+                                        textStyle: Style_letra,
+                                        color: Colors.white),
+                                    textAlign: TextAlign.left
+                                  ),
                                 ),
-                              )
-                            ]
-                        ),
+                                const Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Icon(
+                                      MyFlutterApp.dumbbell,
+                                      color: Colors.white
+                                  ),
+                                ),
+                                const Padding(padding: EdgeInsets.only(right: 20))
+                              ],
+                            ),
+                          ),
+                      onTap: () {},
                       );
                     },
                   )

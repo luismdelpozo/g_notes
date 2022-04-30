@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget{
   SearchBarWidget(this.text_inside);
-
+  final Style_letra = const TextStyle(fontSize: 18);
   final String text_inside;
   Radius get radius => new Radius.circular(20);
   Widget build(BuildContext context){
@@ -17,18 +17,18 @@ class SearchBarWidget extends StatelessWidget{
       child: TextField(
         cursorColor: Colors.black26,
         decoration: InputDecoration(
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             CupertinoIcons.search,
             size: 30,
             color: Colors.black26,
           ),
-          suffixIcon: Icon(
+          suffixIcon: const Icon(
             Icons.tune,
             size: 30,
             color: Colors.black26,
           ),
           border: InputBorder.none,
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             color: Colors.black26,
             fontSize: 18
           ),
