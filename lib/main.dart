@@ -60,11 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
               label: 'Inicio'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.note_rounded),
+              icon: Icon(MyFlutterApp.muscle_up),
               label: "Notas"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_rounded),
+              icon: Icon(Icons.note_rounded),
               label: "Calendario"
           ),
           BottomNavigationBarItem(

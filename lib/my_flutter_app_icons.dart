@@ -31,4 +31,6 @@ class MyFlutterApp {
   static const IconData chart_bar_1 = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chart_area = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData graph = IconData(0xf35a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData muscle_up = IconData(0xea48, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData undo = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

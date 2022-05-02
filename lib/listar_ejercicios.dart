@@ -16,6 +16,12 @@ class ListarEjercicios extends StatelessWidget {
   final Style_letra = const TextStyle(fontSize: 20);
   @override
   Widget build(BuildContext context) {
+    List<Ejercicios> nuevos_ejer = [];
+    for(var i = 0; i < ejercicios.length; i++){
+      if (ejercicios[i].musculo.toString() == musculo){
+        nuevos_ejer.add(ejercicios[i]);
+      }
+    }
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -50,67 +56,36 @@ class ListarEjercicios extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: ejercicios.length,
+              itemCount: nuevos_ejer.length,
               itemBuilder: (BuildContext ctx, int index) {
-                List<Ejercicios> nuevos_ejer = [];
-                for(var i = 0; i< ejercicios.length; i++){
-                  if (ejercicios[i].musculo.toString() == musculo){
-                    nuevos_ejer.add(ejercicios[i]);
-                  }
-                }
                 return InkWell(
-                  child:
-                  Container(
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.black
+                    ),
                     margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                    height: 150,
-                    child: Stack(
-                        children: [
-                          Positioned.fill(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(
-                                    'assets/' + nuevos_ejer[index].imgName,
-                                    fit: BoxFit.cover
-                                ),
-                              )
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(nuevos_ejer[index].name,
+                              style: GoogleFonts.oswald(
+                                  textStyle: Style_letra,
+                                  color: Colors.white),
+                              textAlign: TextAlign.left
                           ),
-                          Positioned(
-                              bottom: 0,
-                              left: 0,
-                              right: 0,
-                              child: Container(
-                                height: 120,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.bottomCenter,
-                                        end: Alignment.topCenter,
-                                        colors: [
-                                          Colors.black.withOpacity(0.7),
-                                          Colors.transparent
-                                        ]
-                                    )
-                                ),
-                              )
+                        ),
+                        const Align(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                              MyFlutterApp.dumbbell,
+                              color: Colors.white
                           ),
-                          Positioned(
-                              bottom: 0,
-                              child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Row(
-                                      children: [
-                                        const SizedBox(width: 8),
-                                        Text(nuevos_ejer[index].name,
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 25
-                                          ),
-                                        )
-                                      ]
-                                  )
-                              )
-                          )
-                        ]
+                        ),
+                        const Padding(padding: EdgeInsets.only(right: 20))
+                      ],
                     ),
                   ),
                   onTap: (){
@@ -121,6 +96,41 @@ class ListarEjercicios extends StatelessWidget {
               },
             ),
           ),
+          InkWell(
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black),
+                color: Colors.white
+              ),
+              margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text('  Volver',
+                              style: GoogleFonts.oswald(
+                              textStyle: Style_letra,
+                              color: Colors.black),
+                              textAlign: TextAlign.left
+                          ),
+                    ),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: Icon(
+                      MyFlutterApp.undo,
+                      color: Colors.black
+                      ),
+                  ),
+                  const Padding(padding: EdgeInsets.only(right: 20))
+                  ],
+              ),
+            ),
+            onTap: (){
+              Navigator.pop(context);
+            },
+          )
         ],
       )
     );
