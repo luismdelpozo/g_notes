@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget{
-  SearchBarWidget(this.text_inside);
+  var _textEditingController;
+
+  SearchBarWidget(this.text_inside, this._textEditingController);
   final Style_letra = const TextStyle(fontSize: 18);
   final String text_inside;
-  Radius get radius => new Radius.circular(20);
+  Radius get radius => new Radius.circular(10);
   Widget build(BuildContext context){
     return Container(
       alignment: Alignment.center,
@@ -15,6 +17,7 @@ class SearchBarWidget extends StatelessWidget{
         borderRadius: BorderRadius.all(radius),
       ),
       child: TextField(
+        controller: _textEditingController,
         cursorColor: Colors.black26,
         decoration: InputDecoration(
           prefixIcon: const Icon(

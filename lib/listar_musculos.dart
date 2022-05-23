@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'api_functions.dart';
@@ -9,12 +10,22 @@ import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
 import 'models/search_bar.dart';
 
-class Notas extends StatelessWidget {
+class ListarMusculos extends StatefulWidget {
+  ListarMusculos({Key? key, required this.title}) : super(key: key);
+  final String title;
+  @override
+  _ListarMusculos createState() => _ListarMusculos();
+}
+
+class _ListarMusculos extends State<ListarMusculos> {
   String url = '';
   var data;
   String musculo_selected = '';
   String output = 'Initial output';
   List<Musculos> musculos = Utils.getMusculos();
+  List<Musculos> musculos_completos = Utils.getMusculos();
+  Radius get radius => new Radius.circular(10);
+  final TextEditingController myController = TextEditingController();
   final Style_letra = const TextStyle(fontSize: 20);
   @override
   Widget build(BuildContext context) {
@@ -39,13 +50,74 @@ class Notas extends StatelessWidget {
               style: GoogleFonts.oswald(textStyle: Style_letra)
             ),
           ),
-          Container(
+          InkWell(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                  child: SearchBarWidget('Busca un músculo...'),
+                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.black12,
+                        borderRadius: BorderRadius.all(radius),
+                      ),
+                      child: TextField(
+                        controller: myController,
+                        cursorColor: Colors.black26,
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            CupertinoIcons.search,
+                            size: 30,
+                            color: Colors.black26,
+                          ),
+                          suffixIcon: const Icon(
+                            Icons.tune,
+                            size: 30,
+                            color: Colors.black26,
+                          ),
+                          border: InputBorder.none,
+                          hintStyle: const TextStyle(
+                              color: Colors.black26,
+                              fontSize: 18
+                          ),
+                          hintText: 'Busca un músculo...'.toString(),
+                        ),
+                        onChanged: (text) {
+                          for (var mus in musculos_completos){
+                            if (mus.name.toLowerCase().contains(myController.text.toLowerCase())){
+                              bool inside = false;
+                              int i = 0;
+                              while (inside == false && i < musculos.length){
+                                if (musculos[i].name == mus.name){
+                                  inside = true;
+                                }
+                                i += 1;
+                              }
+                              if (inside == false){
+                                setState(() {
+                                  musculos.add(mus);
+                                });
+                              }
+                            }
+                            else{
+                              int i = 0;
+                              bool deleted = false;
+                              while (deleted == false && i < musculos.length){
+                                if (musculos[i].name == mus.name){
+                                  setState(() {
+                                    musculos.removeAt(i);
+                                  });
+                                  deleted = true;
+                                }
+                                i += 1;
+                              }
+                            }
+                          }
+                        },
+                      ),
+                    )
                 )
               ],
             ),
@@ -126,7 +198,7 @@ class Notas extends StatelessWidget {
                     ),
                     onTap: (){
                       musculo_selected = musculos[index].name;
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(musculo_selected)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(title: '', musculo_selected: musculo_selected)));
                     },
                   );
                 },
