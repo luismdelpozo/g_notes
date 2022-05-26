@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_notes/models/ejercicios.dart';
+import 'package:g_notes/notas.dart';
 import 'listar_ejercicios.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
@@ -21,14 +22,15 @@ class _Inicio extends State<Inicio> {
   int _selected_musculo = 0;
   List<Musculos> musculos = Utils.getMusculos();
 
-  List<Ejercicios> ejercicios = Utils.getEjercicios();
-  List<Ejercicios> ejercicios_completos = Utils.getEjercicios();
+  List<Ejercicios> ejercicios = Utils.getEjercicios("");
+  List<Ejercicios> ejercicios_completos = Utils.getEjercicios("");
 
   final Style_letra = const TextStyle(fontSize: 20);
   final Style_letra_small = const TextStyle(fontSize: 10);
 
   Radius get radius => new Radius.circular(10);
   String musculo_selected = '';
+  String ejercicio_selected = '';
 
   final TextEditingController myController = TextEditingController();
 
@@ -124,7 +126,9 @@ class _Inicio extends State<Inicio> {
                 ),
                 onTap: (){
                   musculo_selected = musculos[_selected_musculo].name;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(title: '', musculo_selected: musculo_selected)));
+                  List<Ejercicios> List1 = Utils.getEjercicios(musculo_selected);
+                  List<Ejercicios> List2 = Utils.getEjercicios(musculo_selected);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(title: '', musculo_selected: musculo_selected, List1: List1, List2: List2)));
                 },
               ),
               InkWell(
@@ -233,7 +237,10 @@ class _Inicio extends State<Inicio> {
                             ],
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          ejercicio_selected = ejercicios[index].name;
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Notas(title: '', ejercicio: ejercicio_selected, lista_notas: [],)));
+                        },
                       );
                     },
                   )
@@ -244,123 +251,3 @@ class _Inicio extends State<Inicio> {
     );
   }
 }
-
-// class CustomSearchDelegate extends SearchDelegate{
-//   List<Ejercicios> ejercicios = Utils.getEjercicios();
-//   final Style_letra = const TextStyle(fontSize: 20);
-//   @override
-//   List<Widget>? buildActions(BuildContext context) {
-//      return [
-//        IconButton(
-//            onPressed: (){
-//              query = '';
-//            },
-//            icon: const Icon(Icons.clear)
-//        )
-//      ];
-//   }
-//
-//   @override
-//   Widget? buildLeading(BuildContext context) {
-//     return IconButton(
-//         onPressed: (){
-//           close(context, null);
-//         },
-//         icon: const Icon(Icons.arrow_back)
-//     );
-//   }
-//
-//   @override
-//   Widget buildResults(BuildContext context) {
-//     List<Ejercicios> match_ejercicios = [];
-//     for (var eje in ejercicios){
-//       if (eje.name.toLowerCase().contains(query.toLowerCase())){
-//         match_ejercicios.add(eje);
-//       }
-//     }
-//     return ListView.builder(
-//       itemCount: match_ejercicios.length,
-//       itemBuilder: (BuildContext ctx, int index) {
-//         return InkWell(
-//           child: Container(
-//             height: 50,
-//             decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(10),
-//                 color: Colors.black
-//             ),
-//             margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Expanded(
-//                   child: Text(match_ejercicios[index].name,
-//                       style: GoogleFonts.oswald(
-//                           textStyle: Style_letra,
-//                           color: Colors.white),
-//                       textAlign: TextAlign.left
-//                   ),
-//                 ),
-//                 const Align(
-//                   alignment: Alignment.centerRight,
-//                   child: Icon(
-//                       MyFlutterApp.dumbbell,
-//                       color: Colors.white
-//                   ),
-//                 ),
-//                 const Padding(padding: EdgeInsets.only(right: 20))
-//               ],
-//             ),
-//           ),
-//           onTap: () {},
-//         );
-//       },
-//     );
-//   }
-//
-//   @override
-//   Widget buildSuggestions(BuildContext context) {
-//     List<Ejercicios> match_ejercicios = [];
-//     for (var eje in ejercicios){
-//       if (eje.name.toLowerCase().contains(query.toLowerCase())){
-//         match_ejercicios.add(eje);
-//       }
-//     }
-//     return ListView.builder(
-//       itemCount: match_ejercicios.length,
-//       itemBuilder: (BuildContext ctx, int index) {
-//         return InkWell(
-//           child: Container(
-//             height: 50,
-//             decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(10),
-//                 color: Colors.black
-//             ),
-//             margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Expanded(
-//                   child: Text(match_ejercicios[index].name,
-//                       style: GoogleFonts.oswald(
-//                           textStyle: Style_letra,
-//                           color: Colors.white),
-//                       textAlign: TextAlign.left
-//                   ),
-//                 ),
-//                 const Align(
-//                   alignment: Alignment.centerRight,
-//                   child: Icon(
-//                       MyFlutterApp.dumbbell,
-//                       color: Colors.white
-//                   ),
-//                 ),
-//                 const Padding(padding: EdgeInsets.only(right: 20))
-//               ],
-//             ),
-//           ),
-//           onTap: () {},
-//         );
-//       },
-//     );
-//   }
-//}

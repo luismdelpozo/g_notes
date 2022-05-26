@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:g_notes/calendario.dart';
+import 'package:g_notes/notas.dart';
 import 'package:g_notes/estadistica.dart';
 import 'package:g_notes/inicio.dart';
 
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> _widgetOptions = <Widget>[
     Inicio(title: '',),
     ListarMusculos(title: '',),
-    Calendario(),
+    Notas(lista_notas: [], title: '', ejercicio: '',),
     Estadistica(),
   ];
 

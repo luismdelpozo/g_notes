@@ -5,25 +5,31 @@ import 'models/ejercicios.dart';
 import 'models/search_bar.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
+import 'notas.dart';
 
 class ListarEjercicios extends StatefulWidget {
-  ListarEjercicios({Key? key, required this.title, required this.musculo_selected}) : super(key: key);
+  ListarEjercicios({Key? key, required this.title, required this.musculo_selected,
+                      required this.List1, required this.List2}) : super(key: key);
   final String title;
   final String musculo_selected;
+  final List<Ejercicios> List1;
+  final List<Ejercicios> List2;
   @override
-  _ListarEjercicios createState() => _ListarEjercicios(musculo_selected);
+  _ListarEjercicios createState() => _ListarEjercicios(musculo_selected, List1, List2);
 }
 
 class _ListarEjercicios extends State<ListarEjercicios> {
-  _ListarEjercicios(this.musculo);
+  _ListarEjercicios(this.musculo, this.nuevosEjer, this.nuevosEjerTotales);
 
   final String musculo;
+  final List<Ejercicios> nuevosEjer;
+  final List<Ejercicios> nuevosEjerTotales;
 
-  List<Ejercicios> ejercicios = Utils.getEjercicios();
   Radius get radius => new Radius.circular(10);
   final TextEditingController myController = TextEditingController();
 
   final Style_letra = const TextStyle(fontSize: 20);
+  String ejercicio_selected = '';
 
   void initState() {
     super.initState();
@@ -37,16 +43,6 @@ class _ListarEjercicios extends State<ListarEjercicios> {
   }
   @override
   Widget build(BuildContext context) {
-    List<Ejercicios> nuevos_ejer = [];
-    List<Ejercicios> nuevos_ejer_totales = [];
-    for(var i = 0; i < ejercicios.length; i++){
-      if (ejercicios[i].musculo.toString() == musculo){
-        nuevos_ejer.add(ejercicios[i]);
-        nuevos_ejer_totales.add(ejercicios[i]);
-      }
-    }
-    print(nuevos_ejer);
-    print(nuevos_ejer_totales);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -103,30 +99,29 @@ class _ListarEjercicios extends State<ListarEjercicios> {
                           hintText: 'Busca un ejercicio...'.toString(),
                         ),
                         onChanged: (text) {
-                          print(nuevos_ejer);
-                          for (var eje in nuevos_ejer_totales){
+                          for (var eje in nuevosEjerTotales){
                             if (eje.name.toLowerCase().contains(myController.text.toLowerCase())){
                               bool inside = false;
                               int i = 0;
-                              while (inside == false && i < nuevos_ejer.length){
-                                if (nuevos_ejer[i].name == eje.name){
+                              while (inside == false && i < nuevosEjer.length){
+                                if (nuevosEjer[i].name == eje.name){
                                   inside = true;
                                 }
                                 i += 1;
                               }
                               if (inside == false){
                                 setState(() {
-                                  nuevos_ejer.add(eje);
+                                  nuevosEjer.add(eje);
                                 });
                               }
                             }
                             else{
                               int i = 0;
                               bool deleted = false;
-                              while (deleted == false && i < nuevos_ejer.length){
-                                if (nuevos_ejer[i].name == eje.name){
+                              while (deleted == false && i < nuevosEjer.length){
+                                if (nuevosEjer[i].name == eje.name){
                                   setState(() {
-                                    nuevos_ejer.removeAt(i);
+                                    nuevosEjer.removeAt(i);
                                   });
                                   deleted = true;
                                 }
@@ -143,7 +138,7 @@ class _ListarEjercicios extends State<ListarEjercicios> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: nuevos_ejer.length,
+              itemCount: nuevosEjer.length,
               itemBuilder: (BuildContext ctx, int index) {
                 return InkWell(
                   child: Container(
@@ -157,7 +152,7 @@ class _ListarEjercicios extends State<ListarEjercicios> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
-                          child: Text(nuevos_ejer[index].name,
+                          child: Text(nuevosEjer[index].name,
                               style: GoogleFonts.oswald(
                                   textStyle: Style_letra,
                                   color: Colors.white),
@@ -176,7 +171,8 @@ class _ListarEjercicios extends State<ListarEjercicios> {
                     ),
                   ),
                   onTap: (){
-
+                    ejercicio_selected = nuevosEjer[index].name;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Notas(title: '', ejercicio: ejercicio_selected, lista_notas: [],)));
                   },
                 );
               },

@@ -50,8 +50,8 @@ class Utils{
     ];
   }
 
-  static List<Ejercicios> getEjercicios(){
-    return [
+  static List<Ejercicios> getEjercicios(String musculo){
+    List<Ejercicios> lista_principal = [
       Ejercicios(
           name: '  Press banca horizontal',
           color: Colors.blueAccent,
@@ -167,5 +167,18 @@ class Utils{
           musculo: 'Espalda'
       ),
     ];
+
+    if (musculo.isEmpty){
+      return lista_principal;
+    }
+    else{
+      List<Ejercicios> nuevaLista = [];
+      for (var eje in lista_principal){
+        if (eje.musculo == musculo){
+          nuevaLista.add(eje);
+        }
+      }
+      return nuevaLista;
+    }
   }
 }

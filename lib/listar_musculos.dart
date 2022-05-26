@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'api_functions.dart';
 import 'listar_ejercicios.dart';
+import 'models/ejercicios.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
@@ -198,7 +199,9 @@ class _ListarMusculos extends State<ListarMusculos> {
                     ),
                     onTap: (){
                       musculo_selected = musculos[index].name;
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(title: '', musculo_selected: musculo_selected)));
+                      List<Ejercicios> List1 = Utils.getEjercicios(musculo_selected);
+                      List<Ejercicios> List2 = Utils.getEjercicios(musculo_selected);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ListarEjercicios(title: '', musculo_selected: musculo_selected, List1: List1, List2: List2,)));
                     },
                   );
                 },
