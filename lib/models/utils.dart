@@ -53,115 +53,115 @@ class Utils{
   static List<Ejercicios> getEjercicios(String musculo){
     List<Ejercicios> lista_principal = [
       Ejercicios(
-          name: '  Press banca horizontal',
+          name: 'Press banca horizontal',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: '  Press banca horizontal con mancuernas',
+          name: 'Press banca horizontal con mancuernas',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: '  Press banca inclinado',
+          name: 'Press banca inclinado',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: '  Press banca inclinado con mancuernas',
+          name: 'Press banca inclinado con mancuernas',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: '  Press banca declinado',
+          name: 'Press banca declinado',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-          name: '  Press banca declinado con mancuernas',
+          name: 'Press banca declinado con mancuernas',
           color: Colors.blueAccent,
           imgName: 'pecho_ejercicio.png',
           musculo: 'Pecho'
       ),
       Ejercicios(
-        name: '  Remo con barra',
+        name: 'Remo con barra',
         color: Colors.blueAccent,
         imgName: 'laterales_ejercicio.png',
         musculo: 'Espalda'
       ),
       Ejercicios(
-          name: '  Press militar',
+          name: 'Press militar',
           color: Colors.blueAccent,
           imgName: 'hombro_ejercicio.png',
           musculo: 'Hombro'
       ),
       Ejercicios(
-          name: '  Dominadas',
+          name: 'Dominadas',
           color: Colors.blueAccent,
           imgName: 'espalda_entera_icon.png',
           musculo: 'Espalda'
       ),
       Ejercicios(
-          name: '  Sentadilla',
+          name: 'Sentadilla',
           color: Colors.blueAccent,
           imgName: 'cuadriceps_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
-          name: '  Peso muerto',
+          name: 'Peso muerto',
           color: Colors.blueAccent,
           imgName: 'femoral_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
-          name: '  Curl femoral',
+          name: 'Curl femoral',
           color: Colors.blueAccent,
           imgName: 'femoral_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
-          name: '  Gemelo',
+          name: 'Gemelo',
           color: Colors.blueAccent,
           imgName: 'gemelo_ejercicio.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
-          name: '  Chin-ups',
+          name: 'Chin-ups',
           color: Colors.blueAccent,
           imgName: 'biceps_ejercicio.png',
           musculo: 'Biceps'
       ),
       Ejercicios(
-          name: '  Facepull',
+          name: 'Facepull',
           color: Colors.blueAccent,
           imgName: 'espalda_ejercicio.png',
           musculo: 'Espalda'
       ),
       Ejercicios(
-          name: '  Martillo',
+          name: 'Martillo',
           color: Colors.blueAccent,
           imgName: 'biceps_ejercicio.png',
           musculo: 'Biceps'
       ),
       Ejercicios(
-          name: '  Rompecraneos',
+          name: 'Rompecraneos',
           color: Colors.blueAccent,
           imgName: 'triceps_ejercicio.png',
           musculo: 'Triceps'
       ),
       Ejercicios(
-          name: '  Zancadas',
+          name: 'Zancadas',
           color: Colors.blueAccent,
           imgName: 'pierna_entera_icon.png',
           musculo: 'Pierna'
       ),
       Ejercicios(
-          name: '  Extension de cuadriceps',
+          name: 'Extension de cuadriceps',
           color: Colors.blueAccent,
           imgName: 'cuadriceps_ejercicio.png',
           musculo: 'Espalda'

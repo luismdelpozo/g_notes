@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:g_notes/models/ejercicios.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'models/musculos.dart';
+import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
 
 class Notas extends StatefulWidget {
@@ -22,17 +25,23 @@ class _Notas extends State<Notas> {
 
   final Style_letra = const TextStyle(fontSize: 20);
   final Style_letra_small = const TextStyle(fontSize: 10);
+
   String _ejer = "";
 
+  String mu_selected = "Selecciona un músculo";
+  String eje_selected = "Selecciona un ejercicio";
+
+  List<Musculos> l_musculos = Utils.getMusculos();
+  List<Ejercicios> l_ejercicios = Utils.getEjercicios("");
+  List<String> nombres_musculos = [];
+
+  static const double padding = 10;
+  bool is_filtering_mu = false;
+  bool is_filtering_eje = false;
   Radius get radius => new Radius.circular(10);
   @override
   Widget build(BuildContext context) {
-    if (ejercicio.isEmpty){
-      _ejer = "Notas";
-    }
-    else{
-      _ejer = ejercicio;
-    }
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -45,56 +54,102 @@ class _Notas extends State<Notas> {
         elevation: 0.0,
       ),
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 10, left: 20),
-              child: Text(_ejer.toString().trim(),
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.oswald(textStyle: Style_letra)
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 10, left: 20),
-              child: Text("Músculo".toString().trim(),
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.oswald(textStyle: Style_letra)
-              ),
-            ),
-            InkWell(
-              child: Container(
-
-              ),
-              onTap: (){
-
-              },
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 10, left: 20),
-              child: Text("Ejercicio".toString().trim(),
-                  textAlign: TextAlign.left,
-                  style: GoogleFonts.oswald(textStyle: Style_letra)
-              ),
-            ),
-            InkWell(
-              child: Container(
-
-              ),
-              onTap: (){
-
-              },
-            ),
-            Expanded(
-                child: ListView.builder(
-                    itemCount: lista_notas.length,
-                    itemBuilder: (BuildContext ctx, int index){
-                      return InkWell();
-                    }
-                )
-            )
-          ],
-        ),
+        height: double.infinity,
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        child: SafeArea(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                      child: Container(
+                        height: 50,
+                        child: Column(
+                          children: [
+                            InkWell(
+                              child: Container(
+                                /*width: double.infinity,*/
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(radius),
+                                    color: Colors.black
+                                ),
+                                constraints: const BoxConstraints(
+                                    minHeight: 50,
+                                    minWidth: double.infinity
+                                ),
+                                padding: const EdgeInsets.only(left: padding),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                          mu_selected,
+                                          style: GoogleFonts.oswald(
+                                              textStyle: Style_letra,
+                                              color: Colors.white),
+                                          textAlign: TextAlign.left
+                                      ),
+                                    ),
+                                    Icon(
+                                        is_filtering_mu ? MyFlutterApp.up_open:MyFlutterApp.down_open,
+                                        color: Colors.white
+                                    ),
+                                    const Padding(padding: EdgeInsets.only(right: padding))
+                                  ],
+                                ),
+                              ),
+                              onTap: (){
+                                setState(() {
+                                  is_filtering_mu =! is_filtering_mu;
+                                });
+                              },
+                            ),
+                            InkWell(
+                              child: Container(
+                                /*width: double.infinity,*/
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(radius),
+                                    color: Colors.black
+                                ),
+                                constraints: const BoxConstraints(
+                                    minHeight: 50,
+                                    minWidth: double.infinity
+                                ),
+                                padding: const EdgeInsets.only(left: padding),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                          eje_selected,
+                                          style: GoogleFonts.oswald(
+                                              textStyle: Style_letra,
+                                              color: Colors.white),
+                                          textAlign: TextAlign.left
+                                      ),
+                                    ),
+                                    Icon(
+                                      is_filtering_eje ? MyFlutterApp.up_open:MyFlutterApp.down_open,
+                                      color: Colors.white
+                                    ),
+                                    const Padding(padding: EdgeInsets.only(right: padding))
+                                  ],
+                                ),
+                              ),
+                              onTap: (){
+                                setState(() {
+                                  is_filtering_eje =! is_filtering_eje;
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      )
+                  )
+                ],
+              )
+            ],
+          ),
+        )
       )
     );
   }

@@ -28,6 +28,7 @@ class _ListarMusculos extends State<ListarMusculos> {
   Radius get radius => new Radius.circular(10);
   final TextEditingController myController = TextEditingController();
   final Style_letra = const TextStyle(fontSize: 20);
+  static const double padding = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,24 +124,6 @@ class _ListarMusculos extends State<ListarMusculos> {
               ],
             ),
           ),
-          // Container(
-          //   child: Column(children: [
-          //     TextField(
-          //       onChanged: (value){
-          //         url = 'http://10.0.2.2:5000/home?query=' + value.toString();
-          //       },
-          //     ),
-          //     TextButton(
-          //         onPressed: () async {
-          //           data = await fetchData(url);
-          //           var decoded = jsonDecode(data);
-          //           print(decoded);
-          //         },
-          //         child: Text('Call api')
-          //     ),
-          //     Text(output)
-          //   ],)
-          // ),
           Expanded(
               child: ListView.builder(
                 itemCount: musculos.length,
@@ -154,7 +137,7 @@ class _ListarMusculos extends State<ListarMusculos> {
                           children: [
                             Positioned.fill(
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.all(radius),
                                   child: Image.asset(
                                       'assets/' + musculos[index].imgName,
                                       fit: BoxFit.cover
@@ -183,7 +166,7 @@ class _ListarMusculos extends State<ListarMusculos> {
                             Positioned(
                                 bottom: 0,
                                 child: Padding(
-                                    padding: const EdgeInsets.all(10),
+                                    padding: const EdgeInsets.all(padding),
                                     child: Row(
                                         children: [
                                           const SizedBox(width: 8),

@@ -25,12 +25,15 @@ class MyFlutterApp {
   static const _kFontFam = 'MyFlutterApp';
   static const String? _kFontPkg = null;
 
-  static const IconData dumbbell = IconData(0xf44b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chart = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chart_bar = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chart_bar_1 = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData chart_area = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData graph = IconData(0xf35a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData muscle_up = IconData(0xea48, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData undo = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData filter = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData muscle_up = IconData(0xea48, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData down_open = IconData(0xf004, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData up_open = IconData(0xf005, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData graph = IconData(0xf35a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData dumbbell = IconData(0xf44b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

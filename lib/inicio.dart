@@ -31,6 +31,7 @@ class _Inicio extends State<Inicio> {
   Radius get radius => new Radius.circular(10);
   String musculo_selected = '';
   String ejercicio_selected = '';
+  static const double padding = 10;
 
   final TextEditingController myController = TextEditingController();
 
@@ -51,12 +52,12 @@ class _Inicio extends State<Inicio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: const Icon(
             MyFlutterApp.dumbbell,
             color: Colors.black,
             size: 40
         ),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
@@ -108,7 +109,7 @@ class _Inicio extends State<Inicio> {
                         Positioned(
                             bottom: 0,
                             child: Padding(
-                                padding: const EdgeInsets.all(20),
+                                padding: const EdgeInsets.all(padding),
                                 child: Row(
                                     children: [
                                       const SizedBox(width: 8),
@@ -215,6 +216,7 @@ class _Inicio extends State<Inicio> {
                               color: Colors.black
                           ),
                           margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                          padding: const EdgeInsets.only(left: padding),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
