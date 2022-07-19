@@ -26,6 +26,7 @@ class _ListarEjercicios extends State<ListarEjercicios> {
   final List<Ejercicios> nuevosEjerTotales;
 
   Radius get radius => new Radius.circular(10);
+  static const double padding = 10;
   final TextEditingController myController = TextEditingController();
 
   final Style_letra = const TextStyle(fontSize: 20);
@@ -148,6 +149,7 @@ class _ListarEjercicios extends State<ListarEjercicios> {
                         color: Colors.black
                     ),
                     margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    padding: const EdgeInsets.only(left: padding),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

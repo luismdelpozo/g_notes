@@ -24,7 +24,7 @@ class _Notas extends State<Notas> {
   final List<Notas> lista_notas;
 
   final Style_letra = const TextStyle(fontSize: 20);
-  final Style_letra_small = const TextStyle(fontSize: 10);
+  final Style_letra_small = const TextStyle(fontSize: 17);
 
   String _ejer = "";
 
@@ -38,6 +38,7 @@ class _Notas extends State<Notas> {
   static const double padding = 10;
   bool is_filtering_mu = false;
   bool is_filtering_eje = false;
+  int elems_lista = 0;
   Radius get radius => new Radius.circular(10);
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class _Notas extends State<Notas> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(vertical: padding, horizontal: padding),
         child: SafeArea(
           child: Column(
             children: [
@@ -64,12 +65,15 @@ class _Notas extends State<Notas> {
                 children: [
                   Expanded(
                       child: Container(
-                        height: 50,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(radius),
+                            color: Colors.black
+                        ),
                         child: Column(
                           children: [
                             InkWell(
                               child: Container(
-                                /*width: double.infinity,*/
+                                width: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.all(radius),
                                     color: Colors.black
@@ -78,12 +82,11 @@ class _Notas extends State<Notas> {
                                     minHeight: 50,
                                     minWidth: double.infinity
                                 ),
-                                padding: const EdgeInsets.only(left: padding),
+                                padding: const EdgeInsets.only(left: padding, right: 17.5),
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      child: Text(
-                                          mu_selected,
+                                      child: Text(mu_selected,
                                           style: GoogleFonts.oswald(
                                               textStyle: Style_letra,
                                               color: Colors.white),
@@ -91,53 +94,21 @@ class _Notas extends State<Notas> {
                                       ),
                                     ),
                                     Icon(
-                                        is_filtering_mu ? MyFlutterApp.up_open:MyFlutterApp.down_open,
-                                        color: Colors.white
+                                      is_filtering_mu ? MyFlutterApp.down_open:MyFlutterApp.up_open,
+                                      color: Colors.white,
                                     ),
-                                    const Padding(padding: EdgeInsets.only(right: padding))
                                   ],
                                 ),
                               ),
                               onTap: (){
                                 setState(() {
                                   is_filtering_mu =! is_filtering_mu;
-                                });
-                              },
-                            ),
-                            InkWell(
-                              child: Container(
-                                /*width: double.infinity,*/
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(radius),
-                                    color: Colors.black
-                                ),
-                                constraints: const BoxConstraints(
-                                    minHeight: 50,
-                                    minWidth: double.infinity
-                                ),
-                                padding: const EdgeInsets.only(left: padding),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                          eje_selected,
-                                          style: GoogleFonts.oswald(
-                                              textStyle: Style_letra,
-                                              color: Colors.white),
-                                          textAlign: TextAlign.left
-                                      ),
-                                    ),
-                                    Icon(
-                                      is_filtering_eje ? MyFlutterApp.up_open:MyFlutterApp.down_open,
-                                      color: Colors.white
-                                    ),
-                                    const Padding(padding: EdgeInsets.only(right: padding))
-                                  ],
-                                ),
-                              ),
-                              onTap: (){
-                                setState(() {
-                                  is_filtering_eje =! is_filtering_eje;
+                                  if (elems_lista == 0){
+                                    elems_lista = l_musculos.length;
+                                  }
+                                  else{
+                                    elems_lista = 0;
+                                  }
                                 });
                               },
                             )
@@ -146,10 +117,62 @@ class _Notas extends State<Notas> {
                       )
                   )
                 ],
+              ),
+              Expanded(
+                  child: ListView.builder(
+                    itemCount: elems_lista,
+                    itemBuilder: (BuildContext ctx, int index) {
+                      return InkWell(
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white38,
+                          ),
+                          margin: const EdgeInsets.only(bottom: 5, top: 5),
+                          padding: const EdgeInsets.only(left: padding),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(l_musculos[index].name,
+                                    style: GoogleFonts.oswald(
+                                        textStyle: Style_letra_small,
+                                        color: Colors.black),
+                                    textAlign: TextAlign.left
+                                ),
+                              ),
+                              const Align(
+                                alignment: Alignment.centerRight,
+                                child: Icon(
+                                    MyFlutterApp.dumbbell,
+                                    color: Colors.black
+                                ),
+                              ),
+                              const Padding(padding: EdgeInsets.only(right: 20))
+                            ],
+                          ),
+                        ),
+                        onTap: (){
+                          setState(() {
+                            mu_selected = l_musculos[index].name;
+                            is_filtering_mu =! is_filtering_mu;
+                            if (elems_lista == 0){
+                              elems_lista = l_musculos.length;
+                            }
+                            else{
+                              elems_lista = 0;
+                            }
+                          });
+                        },
+                      );
+                    },
+                  )
               )
             ],
           ),
-        )
+        ),
       )
     );
   }
