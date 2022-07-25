@@ -1,7 +1,5 @@
-# g_notes
-
-Aplicacion para apuntar notas del gimnasio
-
+# NoteGym
+## Simple and useful application for taking gym notes
 ## Getting Started
 
 This project is a starting point for a Flutter application.
