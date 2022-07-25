@@ -15,4 +15,10 @@ The purpose of this application is to allow its users to enter gym notes about t
 - stats screen ![0%](https://progress-bar.dev/0)
 - [ ] Make the backend
 ### **Screens**
-1. 
+1. Start screen
+<img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/inicio.png" width="380" height="800"/>
+2. Select muscle screen
+<img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/musculo.png" width="380" height="800"/>
+3. Note screen
+<img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/nota.png" width="380" height="800"/>
+<img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/filtar nota.png" width="380" height="800"/>
