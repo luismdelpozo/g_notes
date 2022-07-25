@@ -19,6 +19,10 @@ The purpose of this application is to allow its users to enter gym notes about t
 <img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/inicio.png" width="380" height="800"/>
 2. Select muscle screen
 <img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/musculo.png" width="380" height="800"/>
+3. Select exercise screen
+<img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/ejercicios de.png" width="380" height="800"/>
 3. Note screen
+<div>
 <img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/nota.png" width="380" height="800"/>
 <img src="https://github.com/luismdelpozo/g_notes/blob/master/assets/filtar nota.png" width="380" height="800"/>
+</div>
