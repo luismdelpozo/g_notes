@@ -32,4 +32,4 @@ The purpose of this application is to allow its users to enter gym notes about t
 2. Add new exercises to the differente muscle categories and distinguish it from the others using different colours.
 3. Possibility to choose another gender in the profile to display other images on the screens.
 
-This application is an individual project, obviously it is necessary to include a registration and profile screen in order to configure the app.
+***This application is an individual project, obviously it is necessary to include a registration and profile screen in order to configure the app.***
