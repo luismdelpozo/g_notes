@@ -9,7 +9,7 @@ import 'models/ejercicios.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
-import 'models/search_bar.dart';
+import 'models/constants.dart';
 
 class ListarMusculos extends StatefulWidget {
   ListarMusculos({Key? key, required this.title}) : super(key: key);
@@ -25,10 +25,8 @@ class _ListarMusculos extends State<ListarMusculos> {
   String output = 'Initial output';
   List<Musculos> musculos = Utils.getMusculos();
   List<Musculos> musculos_completos = Utils.getMusculos();
-  Radius get radius => new Radius.circular(10);
+
   final TextEditingController myController = TextEditingController();
-  final Style_letra = const TextStyle(fontSize: 20);
-  static const double padding = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

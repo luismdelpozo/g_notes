@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'models/ejercicios.dart';
+import 'models/constants.dart';
 import 'models/search_bar.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
@@ -25,11 +26,8 @@ class _ListarEjercicios extends State<ListarEjercicios> {
   final List<Ejercicios> nuevosEjer;
   final List<Ejercicios> nuevosEjerTotales;
 
-  Radius get radius => new Radius.circular(10);
-  static const double padding = 10;
   final TextEditingController myController = TextEditingController();
 
-  final Style_letra = const TextStyle(fontSize: 20);
   String ejercicio_selected = '';
 
   void initState() {

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:g_notes/models/ejercicios.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'models/constants.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
 import 'my_flutter_app_icons.dart';
@@ -23,9 +23,6 @@ class _Notas extends State<Notas> {
   final String ejercicio;
   final List<Notas> lista_notas;
 
-  final Style_letra = const TextStyle(fontSize: 20);
-  final Style_letra_small = const TextStyle(fontSize: 17);
-
   String _ejer = "";
 
   String mu_selected = "Selecciona un músculo";
@@ -35,11 +32,9 @@ class _Notas extends State<Notas> {
   List<Ejercicios> l_ejercicios = Utils.getEjercicios("");
   List<String> nombres_musculos = [];
 
-  static const double padding = 10;
   bool is_filtering_mu = false;
   bool is_filtering_eje = false;
   int elems_lista = 0;
-  Radius get radius => new Radius.circular(10);
   @override
   Widget build(BuildContext context) {
 

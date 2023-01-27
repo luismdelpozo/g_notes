@@ -5,6 +5,7 @@ import 'package:g_notes/notas.dart';
 import 'listar_ejercicios.dart';
 import 'models/musculos.dart';
 import 'models/utils.dart';
+import 'models/constants.dart';
 import 'my_flutter_app_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:g_notes/models/search_bar.dart';
@@ -25,13 +26,8 @@ class _Inicio extends State<Inicio> {
   List<Ejercicios> ejercicios = Utils.getEjercicios("");
   List<Ejercicios> ejercicios_completos = Utils.getEjercicios("");
 
-  final Style_letra = const TextStyle(fontSize: 20);
-  final Style_letra_small = const TextStyle(fontSize: 10);
-
-  Radius get radius => new Radius.circular(10);
   String musculo_selected = '';
   String ejercicio_selected = '';
-  static const double padding = 10;
 
   final TextEditingController myController = TextEditingController();
 
