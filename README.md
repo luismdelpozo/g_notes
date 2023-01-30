@@ -9,6 +9,8 @@ The purpose of this application is to allow its users to enter gym notes about t
 - [x] Design the interactions among the screens.
 - [ ] Make the frontend.
 - main screen. ![100%](https://progress-bar.dev/100)
+- login screen. ![100%](https://progress-bar.dev/100)
+- regiter screen. ![40%](https://progress-bar.dev/100)
 - select muscle screen. ![100%](https://progress-bar.dev/100)
 - select exercise screen. ![100%](https://progress-bar.dev/100)
 - note screen. ![50%](https://progress-bar.dev/50)
