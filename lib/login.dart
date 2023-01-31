@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'inicio.dart';
+import 'main.dart';
 import 'my_flutter_app_icons.dart';
+import 'package:g_notes/models/checkbox.dart';
 
 void main() {
   runApp(MyAppLogin());
@@ -106,6 +109,10 @@ class _Login extends State<Login> {
               ),
             ),
             Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                child: CheckBox('Mantener sesión iniciada'),
+            ),
+            Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: InkWell(
                   child: Container(
@@ -128,7 +135,9 @@ class _Login extends State<Login> {
                       ],
                     ),
                   ),
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+                  },
                 )
             ),
             Padding(
